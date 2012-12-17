@@ -1,0 +1,38 @@
+extends _content_layout
+
+block leftSidebar
+	.leftSidebar
+		include _tags
+		ul.standard
+			li#new_messages
+				h3 New Messages
+			li#all_messages
+				h3 All Messages
+			li#deleted_messages
+				h3 Deleted Messages
+		ul.folders(data-bind= 'html: folder_list')
+
+block centerContent
+	.inbox
+		.header
+			h1 Inbox
+			ul.sorter
+				li Sort:
+				li Top
+				li Date
+				li Tags
+				li More:
+					ul.more-sort
+						li Sender
+						li Subject
+		include _emails
+
+
+block rightSidebar
+	.rightSidebar
+		h2 Widgets
+		include _widgets
+				
+			
+						
+	

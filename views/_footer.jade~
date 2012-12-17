@@ -1,0 +1,4 @@
+ul
+	- lnks = ["About", "Contact", "Home"]
+	each lnk in lnks
+		li: a(href=lnk) #{lnk}

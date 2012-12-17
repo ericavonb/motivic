@@ -1,0 +1,6 @@
+//Html for the list of popular tags
+ul.tags(data-bind= 'foreach: tags')
+	li
+		h3(data-bind= 'text: tag')
+		.count
+			span(data-bind= 'text: count')

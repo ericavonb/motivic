@@ -1,0 +1,26 @@
+// Email model
+
+function email(id) {
+    get: function(f) {return f(id);};
+    put: function(f) {return f(id);};
+    id: id;
+    subject: "subject"; //get(subject);
+    sender: "sender"; //get(sender);
+    dateSent: "date"; //get(dateSent);
+    dateReceived: "date rec"; //get(dateRecieved);
+    content:  "content"; //get(content);
+    tags: "tags" ;//get(tags);
+    loc: "loc"; //get(loc);
+    read: false; //get(read);
+    deleted: false; //get(deleted);
+    selected: false: //get(selected);
+    parent: null; //get(parent);
+    child: null; //(get(child);
+}
+
+
+    
+
+
+
+}

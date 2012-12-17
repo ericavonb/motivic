@@ -1,5 +1,18 @@
 extends layout
 
+// block style
+
 block content
-  h1= title
-  p Welcome to #{title}!
+	.container
+		header
+			block header
+				include _header
+		nav
+			block nav
+				include _nav
+		.main-content
+			block main-content
+				include _inbox
+		footer
+			block footer
+				include _footer

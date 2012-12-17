@@ -1,10 +1,19 @@
 doctype 5
 html
-  head
-    title= title
-  body
-    block content
+	head
+		meta(charset='utf8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
+		meta(name='description', content='Email Site')
+		meta(name='author', content= "Erica von Buelow")
+		block title
+			title Email
+		block style
+			link(rel='stylesheet', href='style.css')
+	body
+		block content
+		block scripts
+			script(src="js/knockout.js")
+			script(src="js/viewcontrollers/inbox.js")
 
-  != css('main')
-  != js('main')
-  != livereload
+
+
