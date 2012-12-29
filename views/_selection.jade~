@@ -1,0 +1,12 @@
+
+tabs = [{label: "Mail", url: "/mail", selected: true}, {label: "Accounts", url: "/accounts"}, {label: "Contacts", url: "/contacts"}]
+
+.sidebar
+  ul.tabs
+    each tab in tabs
+      if tab.selected
+        li.tab.selected
+          a(href= tab.url) #{tab.label}
+      else
+        li.tab
+          a(href= tab.url) #{tab.label}

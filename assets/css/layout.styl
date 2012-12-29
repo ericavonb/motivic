@@ -1,0 +1,97 @@
+
+index(n)
+  z-index: 110 - (10 * n)
+
+
+navBar(accent = black, text =  #a8a9ab)
+  .navbar
+    relative: top 0px left 0px
+    padding: 0px
+    margin: 0px
+    width: 100%
+    height: 30xp
+    background: accent
+    index(1)
+    color: text
+    font-size: 16px
+    list-style: none
+    -webkit-font-smoothing: antialiased
+  li
+    padding: 4px 0px 6px 0px
+    height: 25px
+  a
+    color: text
+    text-decoration: none
+    &:hover
+      color: lighten(text, 20%)
+  .left
+    margin-left: 0px
+  .right
+    margin-right 0px
+  .selected
+    color: lighten(text, 20%)
+
+sideBar(w = 300px, n = 1, dark = #666, text = #DDD)
+  .sidebar
+    width: w;
+    height: 100%
+    relative: top 0px left 0px
+    padding: 0px
+    margin: 0px
+    .tabs
+      relative: top 0px left 0px
+      .tab
+        float: left
+        background: lighten(dark, 30%)
+        width: (w / n)
+      a
+        color: text
+        text-decoration: none
+        &:hover
+          color: lighten(text, 20%)
+      .selected
+        background: dark
+        color: text
+    
+
+
+        
+
+
+
+
+
+
+
+hidden-header(h = 100px, c = none, pad = (0 0 0 0))
+  margin: 0
+  padding: pad
+  display: none
+  background: c
+  height: h - pad[0] - pad[2]
+  top(2)
+
+fixedTop(h = 35px, c = none)
+  fixed: top 0px left 0px
+  height: h
+  width: 100%
+  background: c
+  top(1)
+
+fixedFooter(h = 35px, c = none)
+  fixed: bottom 0px left 0px
+  height: h
+  width: 100%
+  background: c
+  top(1)
+
+
+
+
+
+
+
+
+
+   
+  

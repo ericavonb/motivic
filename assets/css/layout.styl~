@@ -1,0 +1,65 @@
+index(n)
+  z-index: 110 - (10 * n)
+
+
+hidden-header(h = 100px, c = none, pad = (0 0 0 0))
+  margin: 0
+  padding: pad
+  display: none
+  background: c
+  height: h - pad[0] - pad[2]
+  top(2)
+
+fixedTop(h = 35px, c = none)
+  fixed: top 0px left 0px
+  height: h
+  width: 100%
+  background: c
+  top(1)
+
+fixedFooter(h = 35px, c = none)
+  fixed: bottom 0px left 0px
+  height: h
+  width: 100%
+  background: c
+  top(1)
+
+make-column(w, h, mar = (0,0,0,0), pad= (0,0,0,0))
+  pad = length(pad) == 2 ? append pad pad : pad
+  pad = length(pad) == 1 ? (pad, pad, pad, pad) : pad
+  mar = length(mar) == 2 ? append mar mar : mar
+  mar = length(mar) == 1 ? (mar, mar, mar, mar) : mar
+  return (w, h, pad, mar)
+
+add-column(container, column, pos = last)
+  if pos == last
+    prepend container column
+  if pos == first
+    append container column
+  else
+    for col, i in container
+      newcont =  (i == pos) ? prepend newcont column col : prepend newcont col
+
+
+add-columns(container, n, ws = 100% / n, hs = 100%, spacing = 0)
+  for i in 0...n
+    w = ws[i] ? (containerws[i]
+    add-column(container, make-column(ws[i] := ws, hs[i] := hs, i == n ? (0, 0, 0, 0) : (0 , spacing, 0, 0)))
+
+container = add-column((), 100%, 100%, 0, 0, first)
+
+
+column(col)
+  width: col[0]
+  height: col[1]
+  margin: col[2]
+  padding: col[3]
+
+
+
+
+
+
+
+   
+  

@@ -1,15 +1,55 @@
 
-ul.emailList(data-bind= 'foreach: emails')
-	li.emailPreview(data-bind= 'css: {read: read()}')
+
+ul.emailList(data-bind= 'viewMode: viewInbox, foreach: emails')
+	li.view-item.emailPreview(data-bind= 'css: {read: read}, click: $parent.view')
+		.checkboxCont
+			button.action(type= 'button', data-bind= 'click: selected')
 		.left
 			h2(data-bind= 'text: sender')
-			h3(data-bind= 'text: subject')
+			h3(data-bind= 'text: subject, click: $parent.view')
 			p(data-bind= 'text: contentPreview')
 		.right
-			h2(data-bind= 'text: date')
+			h2(data-bind= 'text: dateSent')
 			ul.tags(data-bind= 'foreach: tags')
-				li(data-bind= 'text: formatTag')
-		ul.buttons(data-bind= 'foreach: buttons')
-			li(data-bind= 'html: button.html')
-		input(type= 'checkbox', data-bind= 'checked: selected')
+				li(data-bind= 'text: tag')
+		ul.buttons(data-bind= 'foreach: $parent.buttons')
+			li
+				button.action Delete
+			li
+				button.action Archive
+			li
+				button.action Later
+			li
+				button.action Important
+			li.dropdown
+				button.dropdown-label Widgets
+				ul.dropdown-list
+					li.dropdown-item
+						button.action Widget 1
+					li.dropdown-item
+						button.action Widget 2
+			li.dropdown
+				button.dropdown-label Folder
+				ul.dropdown-list
+					li.dropdown-item
+						button.action Personal
+					li.dropdown-item
+						button.action Work
+			li
+				button.action Reply
+			li
+				button.action Forward
+			li
+				button.action Spam
+			li
+				button.action View Full
+			li
+				button.action Download/Sync
+			li
+				button.action Save current version
+			li
+				button.action Edit Tags
+			li
+				button.action Print
+
 			

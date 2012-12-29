@@ -1,0 +1,67 @@
+//- Default Values or Example Values
+tabs = [{label: "Mail", url: "/mail", selected: "selected", count: 4}, {label: "Accounts", url: "/accounts", count: 0}, {label: "Contacts", url: "/contacts", count: 1}]
+
+tags = [{label: "#calendar (5)", url: "/tags/calendar", selection: "selection"}, {label: "#links (3)", url: "/tags/links", selection: "selection"}, {label: "#cool (1)", url: "/tags/cool", selection: "selection"}, {label: "#images (1)", url: "/tags/images", selection: "selection"}]
+
+
+constant = [{url: "mail/inbox", selection: "selection", label: "<span class='label'>Inbox</span><span class='count'>(4)</span>"}, {url: "/mail/all", selection: "selection", label: "All Messages"}, {url: "/mail/deleted", selection: "selection", label: "Deleted Messages"}, {url: "/mail/sent", selection: "selection", label: "Sent Messages"}, {url: "/mail/drafts", selection: "selection", label: "Drafts"}]
+
+folders = [{label: "Personal"}, {label: "Work"}]
+
+widgets = [{label: "Calendar"}, {label: "Links"}]
+
+foldersActions = [{label: "Add Folder", url: "/settings/folders/new"}, {label: "Manage", url: "/settings/folders"}]
+
+tagsActions = [{label: "Show All", url: "/mail/tags/all"}]
+
+widgetsActions = [{label: "Show All", url: "/widgets/all"}]
+
+selections = [{label: "Top Tags", selectionList: tags, actions: tagsActions}, {selectionList: constant}, {selectionList: folders, actions: foldersActions}, {label: "Widgets", selectionList: widgets, actions: widgetsActions}]
+
+
+mixin selection(select)
+  if select.open
+    .icon.downArrow.action "V"
+    a(class=[select.selected, select.selection], href= select.url) #{select.label}
+    ul.subselection-list(class= select.open)
+      each item in select.sublist
+        mixin selection(item)
+  else
+    if select.sublist
+      .icon.sideArrow.action "->"
+      a(class=[select.selected, select.selection], href= select.url) #{select.label}
+    else
+      a(class=[select.selected, select.selection], href= select.url) #{select.label}
+      
+
+mixin selectionBlock(item)
+  if item.label
+    h1= item.label
+  if item.items
+    ul.selectionList
+      each it in item.items
+        li.selection
+          mixin selection(it)
+  if item.actions
+    ul.selectionActions
+      each act in item.actions
+        li.action
+          a(href=act.url) #{act.label}
+
+mixin countTab(tab)
+  a(href= tab.url) 
+    if tab.count != 0
+      span.label #{tab.label}
+      span.count (#{tab.count})
+    else
+      span.label #{tab.label}
+
+
+.sidebar
+  ul.tabs
+    each tab in tabs
+        li.tab(class= tab.selected)
+          mixin countTab(tab)
+  each blk in selections
+    .selectionBlock
+      mixin selectionBlock(blk)

@@ -1,0 +1,12 @@
+.email(data-bind= 'css: {read: read}')
+		.left
+			h2(data-bind= 'text: sender')
+			h3(data-bind= 'text: subject')
+			p(data-bind= 'text: content')
+		.right
+			h2(data-bind= 'text: dateSent')
+			ul.tags(data-bind= 'foreach: tags')
+				li(data-bind= 'text: tag')
+		ul.buttons(data-bind= 'foreach: $parent.buttons')
+			li(data-bind= 'html: html')
+			

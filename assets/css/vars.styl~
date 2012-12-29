@@ -1,0 +1,25 @@
+
+left-size = 270px
+center-size = 560px
+right-size = 300px
+
+
+
+navBar_w = 150px
+navBar_h = 35px
+
+offWhite =  #f6f8fb
+
+darkGrey = #46484b
+lightGrey = #a8a9ab
+
+
+
+
+
+
+navBefore
+  margin: 0px (nav-link-size * -1.5)
+  padding: 5px 50%
+  fixed: top 175px left 0px
+	

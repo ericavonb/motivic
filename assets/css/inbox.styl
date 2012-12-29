@@ -1,0 +1,206 @@
+/*
+ * Style for the inbox
+*/
+
+
+@import vars
+@import mixins
+
+
+normalize()
+
+simple-button()
+reset-link()
+
+normal = 300
+bold = 500
+
+body
+  webkit-animation: fadeIn 1s ease
+  font-family: 'Helvetica', sans-serif
+  font-size: 15px
+
+  ul
+    list-style: none
+    margin: 0px
+    padding: 0px
+
+
+
+.container
+  tight()
+  background: offWhite
+  position: relative
+
+header
+  margin: 0px
+  padding-top: 100px
+  height: header_h - 100px
+  display: none
+  background: red
+  centered()
+
+  .logo
+    font-size: 3em
+    text-align: center
+    font-weight: 300
+    centered()
+
+  .downButton
+    padding: 100px 0px 0px 0px
+    button.down
+      updownButton()
+    
+ 
+nav
+  navBar(3, 120px)
+
+  button.up
+    display: none
+    fixed: top 10px right 10px
+    updownButton()
+
+
+.main-content
+  position: relative
+  min-width: (left-size + center-size + right-size)
+  overflow: hidden
+  margin-top: navBar_h;
+  
+
+  ul.leftSidebar
+    margin: -20px 0px 0px 0px
+    absolute: top 10px left 0px
+    z-index: 90
+    fileBar()
+   .tags
+        span, .count
+          margin-left: 5px
+
+ 
+  .inbox
+    absolute: top 0px left 50%
+    margin-left: -((center-size + left-size) / 2)
+    width: center-size
+    .header
+      centerHeader()
+      margin-top: 10px
+      margin-bottom: 0px
+    .emailList
+      group()
+      relative: top 0px left 40px
+      display: block
+      padding: 0px
+      margin: 0px 20px
+      height: 100%
+      width: (center-size - 80)
+      overflow-y: scroll
+      border-bottom: solid 1px lightGrey
+   
+      .emailPreview, .email
+        display: block
+        position: relative
+        height: 90px
+        padding: 20px 0px
+        border-bottom: 2px solid #CCC
+        email()
+
+        p
+          width: 375px
+          margin: 5px 0px 0px 0px
+
+        &:nth-child(1)
+          background: #D8D8D8
+          margin-top: 20px
+
+          ul.buttons li
+            background: red
+
+          .checkboxCont 
+            button
+              background: #A8A9Ab
+
+        .left
+          float: left
+          width:  325px
+          padding: 0px 10px
+
+        .right
+          float:  left
+          width: 160px
+          text-align: right
+          padding: 0px 10px
+
+          .tags
+            text-align: right
+            font-size: .9 em
+  
+        ul.buttons
+          float: left
+          margin: -19px 10px 0px 15px
+          emailButtons(40, 40, 3)
+  
+        .checkboxCont
+          float: left
+          checkbox()
+          margin: 0px 5px 0px 15px
+
+      .email
+        height: 400px    
+            
+
+
+ 
+
+  
+  .rightSidebar
+    margin: -10px -10px -10px 40px
+    padding: 10px 10px 10px 0px
+    absolute: right 0px top 0px
+    background: offWhite
+    height: 100%
+    width: (right-size - 40)
+    z-index: 80
+    box-shadow: inset 0px 0px 20px 0px lightGrey
+    h2
+       display: none;
+    ul
+
+      li
+        widget()
+
+
+footer
+  clear: both
+  fixed: bottom 0px left 0px
+  width: 100px
+  height: 25px
+  padding: 5px 0px
+  background: none
+  margin: 0
+
+  ul
+    center(20px)
+    padding: 0px
+    height: 30px
+    width: 360px
+    li
+      display: block
+      width: 100px
+      height: 30px
+      float: left
+      margin: 0
+      a
+        text-decoration: none
+        color #a8a9ab       
+        transition()
+        &:hover
+          color: #8e8e8e
+
+          
+  
+/* box-shadow: inset 0px 0px 20px 0px darken(lightGrey, 10%)
+
+ *   box-shadow: inset 0px 0px 20px 0px lightGrey
+*/
+  

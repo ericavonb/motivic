@@ -1,37 +1,58 @@
 extends _content_layout
 
-block leftSidebar
-	.leftSidebar
-		include _tags
-		ul.standard
-			li#new_messages
-				h3 New Messages
-			li#all_messages
-				h3 All Messages
-			li#deleted_messages
-				h3 Deleted Messages
-		ul.folders(data-bind= 'html: folder_list')
 
-block centerContent
-	.inbox
-		.header
-			h1 Inbox
-			ul.sorter
-				li Sort:
-				li Top
-				li Date
-				li Tags
-				li More:
-					ul.more-sort
-						li Sender
-						li Subject
+block sidebar
+	include _selection
+
+block view
+	.header
+		h1 Inbox
+		h2 12 Messages
+	.view-item.email-list
+		ul.viewactions#emaillist-actions
+			li
+				button.action Back
+			li.dropdown
+				button.dropdown-label Sort by
+				ul.dropdown-list
+					li.dropdown-item
+						button.action Top
+					li.dropdown-item
+						button.action Date
+					li.dropdown-item
+						button.action Sender
+					li.dropdown-item
+						button.action Tags
+					li.dropdown-item
+						button.action Subject
+			li.dropdown
+				button.dropdown-label Show:
+				ul.dropdown-list
+					li.dropdown-item
+						button.action Min
+					li.dropdown-item
+						button.action Preview
+					li.dropdown-item
+						button.action Full
+			li
+				button.action Delete
+			li
+				button.action Archive
+			li
+				button.action Folder
+			li
+				button.action Later
+			li
+				button.action Important
+			li
+				button.action View
 		include _emails
 
-
-block rightSidebar
-	.rightSidebar
-		h2 Widgets
+	.view-item.right
 		include _widgets
+		ul.viewactions
+			li
+				button.action More
 				
 			
 						

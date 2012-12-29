@@ -1,3 +1,15 @@
-ul(data-bind= 'foreach: nav')
-	li
-		a(href= '#', data-bind= 'css: {selected: onPage()}, text: name')
+mixin link(item)
+  a(href= item.url) #{item.label}
+
+navLeft = [{label: "Email 2.0", url: "/"}, {label: "Compose", url: "/mail/new"}, {label: "Add Account", url: "/account/new"}, {label: "Widgets", url: "/widgets"}, {label: "Settings", url: "/settings"}]
+
+navRight = [{label: "Help", url: "/help"}, {label: "Email Account", url: "/useraccount"}, {label: " Log Out", url: "/logout"}]
+
+ul.left
+  each item in navLeft
+    li.nav-item
+      mixin link(item)
+ul.right
+  each item in navRight
+    li.nav-item
+      mixin link(item)
